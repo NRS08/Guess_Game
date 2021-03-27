@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Guess Game</title>
+<style>
+.guess{
+	color:white;
+	font-family:"Times New Roman";
+	font-size:xx-large;
+	font-weight: bold;
+	}
+
+  body {
+  background-color: black;
+ 
+}
+	.button {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 25px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+</style>
+<script language="javascript">
+	function one(){
+	window.location.href = "project.html";
+	}
+	function two(){
+	window.location.href = "project2.html";
+	}
+	function three(){
+	window.location.href = "project1.html";
+	}
+</script>
+
+  </head>
+  <body>
+  <center><p class="guess">Select Level To Start The Game</p></center>
+  <center><button class="button" id="1" onClick="one()">EASY</button>
+      <button class="button" id="1" onClick="two()">MEDIUM</button>
+      <button class="button" id="1" onClick="three()">HARD</button>	  
+  </center><br><br><br>
+  <center><img src="guess.gif" height="200" width="350"></center>
+
+  </body>
+</html>

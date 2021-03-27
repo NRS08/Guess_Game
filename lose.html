@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LOOSE</title>
+<style>
+.guess{
+	color:white;
+	font-family:"Times New Roman";
+	font-size:xx-large;
+	font-weight: bold;
+	}
+
+  body {
+  background-color: black;
+  
+}
+	.button {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 25px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+</style>
+<script language="javascript">
+    function zero()
+	{
+		var data = sessionStorage.getItem('secret1')
+		document.getElementById("secret").innerHTML="The Secret no. was "+data;
+	}
+	function one(){
+	window.location.href = "main.html";
+	}
+</script>
+
+  </head>
+  <body onload="zero()"><br>
+  <center><button class="button" id="1" onClick="one()">RESTART</button></center>
+  <p align="center" class="guess">Times Up!!!!</p>
+  <p align="center" class="guess" id=secret></p>
+  <center><img src="lose.gif" height="350" width="350"></center>
+  </body>
+</html>

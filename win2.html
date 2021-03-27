@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Congrats</title>
+<style>
+.guess{
+	color:white;
+	font-family:"Times New Roman";
+	font-size:xx-large;
+	font-weight: bold;
+	text-align: center;
+	}
+
+  body {
+  background-color: black;
+  
+}
+	.button {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 25px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+</style>
+<script language="javascript">
+function zero(){
+    var data = sessionStorage.getItem('key')
+	data = 40 - data;
+	var value = 100 - data;
+	
+	document.getElementById("count").innerHTML=value;
+
+
+}
+	function one(){
+	window.location.href = "main.html";
+	}
+</script>
+
+  </head>
+  <body onload="zero()"><br>
+  <center><button class="button" id="1" onClick="one()">RESTART</button></center><br>
+  <center><span class="guess">Your Score is: </span></center>&nbsp;<center><span class="guess" id="count"></span></center>
+  <center><img src="win.gif" height="350" width="350"></center>
+  </body>
+</html>

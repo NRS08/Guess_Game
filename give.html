@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gave Up</title>
+<style>
+.guess{
+	color:white;
+	font-family:"Times New Roman";
+	font-size:xx-large;
+	font-weight: bold;
+	}
+
+  body {
+  background-color: black;
+ 
+}
+	.button {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 20px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+</style>
+<script language="javascript">
+	function one(){
+	window.location.href = "main.html";
+	}
+	function zero(){
+		 var count = sessionStorage.getItem('no')
+		 document.getElementById("give").innerHTML="You Gave up After "+count+" Attemps";
+		 var top = sessionStorage.getItem('secret')
+		 document.getElementById("give1").innerHTML="The Secret Number was "+top;
+	
+	}
+</script>
+
+  </head>
+  <body onload="zero()"><br><br>
+  <center><button class="button" id="1" onClick="one()">RESTART</button></center>
+  
+
+<p align="center" class="guess" id="give"></p>
+<p align="center" class="guess" id="give1"></p>
+<center><img src="give.gif" height="270" width="350"></center>
+  </body>
+</html>

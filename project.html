@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <title>Game</title>
+	<style>
+	@keyframes color10 {
+  0%   {background-color:magenta;}
+  25%  {background-color:#f39c12;}
+  50%  {background-color:#ff6666;}
+  75%  {background-color:#4CAF50;}
+  100% {background-color:magenta;}
+}
+@keyframes color1 {
+  0%   {background-color:#4CAF50;}
+  25%  {background-color:#ff6666;}
+  50%  {background-color:#f39c12;}
+  75%  {background-color:magenta;}
+  100% {background-color:#4CAF50;}
+}
+@keyframes color2 {
+  0%   {background-color:#f39c12;}
+  25%  {background-color:magenta;}
+  50%  {background-color:#4CAF50;}
+  75%  {background-color:#ff6666;}
+  100% {background-color:#f39c12;}
+}
+@keyframes color3 {
+  0%   {background-color:magenta;}
+  25%  {background-color:#4dff88;}
+  50%  {background-color:#ffad33;}
+  75%  {background-color:#00cca3;}
+  100% {background-color:magenta;}
+}
+@keyframes color5 {
+  0%   {background-color:#ffad33;}
+  25%  {background-color:#00cca3;}
+  50%  {background-color:magenta;}
+  75%  {background-color:#4dff88;}
+  100% {background-color:#ffad33;}
+}
+
+@keyframes click {
+  0%   {background-color:black;}
+  100% {background-color:black;}
+}
+	.guess{
+	color:white;
+	font-family:"Times New Roman";
+	font-size:xx-large;
+	font-weight: bold;
+	}
+	.button10 {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 28px;
+	font-weight: bolder;
+	margin: 4px 2px;
+	cursor: pointer;
+	animation-name: color10;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+}
+.button1 {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 28px;
+	font-weight: bolder;
+	margin: 4px 2px;
+	cursor: pointer;
+	animation-name: color1;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+}
+.button2 {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 28px;
+	font-weight: bolder;
+	margin: 4px 2px;
+	cursor: pointer;
+	animation-name: color2;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+}
+.button3 {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 28px;
+	font-weight: bolder;
+	margin: 4px 2px;
+	cursor: pointer;
+	animation-name: color3;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+}
+.button5 {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 28px;
+	font-weight: bolder;
+	margin: 4px 2px;
+	cursor: pointer;
+	animation-name: color5;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+}
+
+
+.button11 {
+	background-color: red;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 25px;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+</style>
+		<script type="text/javascript">
+		sec = 30;
+		 stoptime = true;
+		function zero()
+		{
+			s = Math.floor((Math.random() * 10) + 1);
+			
+			b = 0;
+		}
+  function reply_click(clicked_id)
+  {
+      a = parseInt(clicked_id);
+	  document.getElementById(a).style.color="black";
+	  document.getElementById(a).style.backgroundColor="black";
+	  document.getElementById(a).style.animationName="click";
+			one();
+  }
+	function one()
+	{
+				if(b>=4){
+					sessionStorage.setItem('secret1',s);
+					window.location.href = "lose1.html";
+				
+				}
+				
+				if(a==s)
+				{
+				
+				sessionStorage.setItem('key', sec);
+				window.location.href = "win.html";
+				
+				
+				//document.location.reload(true);
+				}
+				if(a!=s)
+				{
+				
+				
+				b = b + 1;
+				document.getElementById("count").innerHTML=b;
+				
+				
+				}
+			
+	}
+			function startTimer() {
+  if (stoptime == true) {
+        stoptime = false;
+        timerCycle();
+    }
+}
+function stopTimer() {
+  if (stoptime == false) {
+    stoptime = true;
+  }
+}
+
+function timerCycle() {
+    if (stoptime == false) {
+    sec = parseInt(sec);
+    
+
+    sec = sec - 1;
+
+    
+
+    if (sec < 10 || sec == 0) {
+      sec = sec;
+    }
+	if(sec >=10 && sec<100)
+	{
+		sec = sec;
+ 	}
+    
+
+    document.getElementById("stopwatch").innerHTML = sec;
+
+    setTimeout("timerCycle()", 1000);
+  }
+  if(sec== -1)
+  {
+
+	sessionStorage.setItem('secret1',s);
+	window.location.href = "lose.html";
+					
+  }
+}
+function give(){
+	sessionStorage.setItem('no',b);
+	sessionStorage.setItem('secret',s);
+	
+	window.location.href = "give.html";
+}
+
+</script>
+    
+  </head>
+  <body bgcolor="black" onload="zero();startTimer();">
+  <center><font color="white" size="16"><b>Guess The Secret Number </b></font></center>
+  <span class="guess">Guess Count</span>&nbsp;&nbsp;<span class="guess" id="count">0</span>&nbsp;&nbsp;<span class="guess">of 5</span>
+  <p class="guess" align="middle" id="stopwatch">
+            30
+        </p>
+   <center><form onclick="return false">
+<button class="button1" id="1" onClick="reply_click(this.id)">1</button>
+<button class="button2" id="2" onClick="reply_click(this.id)">2</button>
+<button class="button3" id="3" onClick="reply_click(this.id)">3</button><br>
+<button class="button3" id="4" onClick="reply_click(this.id)">4</button>
+<button class="button5" id="5" onClick="reply_click(this.id)">5</button>
+<button class="button1" id="6" onClick="reply_click(this.id)">6</button><br>
+<button class="button1" id="7" onClick="reply_click(this.id)">7</button>
+<button class="button2" id="8" onClick="reply_click(this.id)">8</button>
+<button class="button3" id="9" onClick="reply_click(this.id)">9</button><br>
+<button class="button10" id="10" onClick="reply_click(this.id)">10</button><br><br>
+<button class="button11" onClick="give()">Give Up</button>
+
+
+
+   </form></center>
+   
+  </body>
+</html>
