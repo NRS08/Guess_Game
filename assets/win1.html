@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LOOSE</title>
+    <title>Congrats</title>
 <style>
 .guess{
 	color:white;
 	font-family:"Times New Roman";
 	font-size:xx-large;
 	font-weight: bold;
+	text-align: center;
 	}
 
   body {
@@ -29,22 +30,24 @@
 
 </style>
 <script language="javascript">
+function zero(){
+    var data = sessionStorage.getItem('key')
+	data = 50 - data;
+	var value = 100 - data;
+	
+	document.getElementById("count").innerHTML=value;
 
-	function zero()
-	{
-		var data = sessionStorage.getItem('secret1')
-		document.getElementById("secret").innerHTML="The Secret no. was "+data;
-	}
+
+}
 	function one(){
-	window.location.href = "main.html";
+	window.location.href = "index.html";
 	}
 </script>
 
   </head>
   <body onload="zero()"><br>
-  <center><button class="button" id="1" onClick="one()">RESTART</button></center>
-  <p align="center" class="guess">Maximum Guess Limit Reached Try Again!!</p>
-  <p align="center" class="guess" id=secret></p>
-  <center><img src="lose.gif" height="350" width="350"></center>
+  <center><button class="button" id="1" onClick="one()">RESTART</button></center><br>
+  <center><span class="guess">Your Score is: </span></center>&nbsp;<center><span class="guess" id="count"></span></center>
+  <center><img src="win.gif" height="350" width="350"></center>
   </body>
 </html>
